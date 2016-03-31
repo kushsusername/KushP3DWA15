@@ -13,7 +13,9 @@ This project requires building a web application with a prebuilt framwork: Larav
 
 ## Additional Design Details
  - I liked my tab design that I had since project 1 and 2 so I continued with that in my master and in each custom page's js I toggled the the active tab as a user navigates through. This keeps the user's experiance consistant throughout my webpages
- - I added the XKCD Password generator to this website since it felt like it belonged here as a developer tool. Could be used to create passwords for the Random Users your generate. 
+ - I added the XKCD Password generator to this website since it felt like it belonged here as a developer tool. Could be used to create passwords for the Random Users your generate. However I kept most of the code the same.
+ - The Lorem Ipsum Generator uses a mix of the old style of form and validation and some of the newer tricks we learned.
+ - The Random User Generator uses most of the new stuff except the blade form generation. I was having too many errors configuring it the way I wanted to and have it look semi-pretty with bootstrap.
 
 ## External Resources
  - Bootstrap <http://getbootstrap.com/>
