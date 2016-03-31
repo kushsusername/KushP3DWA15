@@ -4,7 +4,7 @@
 This project requires building a web application with a prebuilt framwork: Laravel. The web application contains 3 tools: XKCD password generator from Project 2, a new Lorem Ipsum Generator, and a new Random User Generator. All forms inlcude server side validation, but in some varying forms.
 
 **URL** <http://p3.kushsdwa15.xyz/>
-**DEMO** <https://youtu.be/PFhRBS5zY0Q> 
+**DEMO** <https://youtu.be/gbkBJctKmaw> 
 
 ## Known Errors
  - https://validator.w3.org/ says that an <icon> tag cannot be placed within an <a> tag. However I'm not really using an icon, but more a specific unicode character as the hyperlink. Bootstrap has framework around it which actually creates a valid interaction. The house icon on my website is clickable.
