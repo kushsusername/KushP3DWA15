@@ -11,7 +11,7 @@ Random User Generator
 @section('content')
 <div class="tab-content">
   <h2><u>Random User Generator</u></h2>
-  <p> This is a random user generator that will give you a sample user's data including: first name, last name, birthday, email, and user summary.</p>
+  <p> This is a random user generator that will give you a sample user's data including: first name, last name, address, birthday, and user summary.</p>
   <div class="row">
     <div class="col-md-4">
       <form method='POST' action=''>

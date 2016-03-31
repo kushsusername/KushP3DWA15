@@ -16,7 +16,7 @@ XKCD Password Generator
   <p> The symbols available are: !,@,#,$,%,&amp;.</p>
   <div class="row">
     <div class="col-md-4">
-      <form method='POST' action=''>
+      <form method='POST' action='/xkcdpassword'>
         {{ csrf_field() }}
         <input class="form-control" placeholder="Word Count: 1-10" type='text' name='wordcount'><br>
         <input class="form-control" placeholder="Number Count: 1-10" type='text' name='numbercount'><br>
