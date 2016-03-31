@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+XKCD Password Generator
+@stop
+
 @section('head')
 
 @stop

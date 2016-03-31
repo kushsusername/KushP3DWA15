@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+Lore Impsum Generator
+@stop
+
 @section('head')
 
 @stop
