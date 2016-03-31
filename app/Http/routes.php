@@ -14,5 +14,12 @@
 Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', 'HomeController@getHome');
+    Route::get('/home', 'HomeController@getHome');
+
+    Route::get('/xkcdpassword', 'ToolsController@getXkcdPassword');
+    Route::post('/xkcdpassword', 'ToolsController@postXkcdPassword');
+
+    Route::get('/loremipsum', 'ToolsController@getLoremIpsum');
+    Route::get('/randomuser', 'ToolsController@getRandomUser');
 
 });
