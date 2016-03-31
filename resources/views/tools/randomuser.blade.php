@@ -14,6 +14,12 @@
         {{ csrf_field() }}
         <input class="form-control" placeholder="User Count: 1-50" type='text' name='usercount'><br>
         <div class="form-group">
+          <select name="address">
+            <option value="TRUE">Include Address</option>
+            <option value="FALSE">Exclude Address</option>
+          </select>
+        </div>
+        <div class="form-group">
           <select name="birthday">
             <option value="TRUE">Include Birthday</option>
             <option value="FALSE">Exclude Birthday</option>
@@ -32,8 +38,20 @@
       <br>
     </div>
     <div class="col-md-8">
-      <h3><?php echo $error != '' ? "Your input has the following errors:" : ""?></h3>
-      <h5><?php echo $error != '' ? $error : ""?></h5>
+      @if(count($errors) > 0)
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      @endif
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      @if (isset($userString))
+        {!! $userString !!}
+      @endif
     </div>
   </div>
 </div>

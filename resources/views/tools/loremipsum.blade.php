@@ -23,6 +23,13 @@
       <h5><?php echo $error != '' ? $error : ""?></h5>
     </div>
   </div>
+  <div class="row">
+    @if ($paragraphs != '')
+      @foreach ($paragraphs as $paragraph)
+        <p>{{ $paragraph }}</p>
+      @endforeach
+    @endif
+  </div>
 </div>
 @stop
 

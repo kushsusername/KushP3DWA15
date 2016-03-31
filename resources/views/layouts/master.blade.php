@@ -30,18 +30,18 @@
       </li>
       <li id="xkcdpasswordTab">
         <a href="xkcdpassword" role="tab" data-toggle="tab">
-          <i class="fa fa-user"></i> XKCD Password Generator
+          <icon class="glyphicon glyphicon-option-horizontal"></icon> XKCD Password Generator
           </a>
       </li>
       <li id="loremipsumTab">
         <a href="loremipsum" role="tab" data-toggle="tab">
-          <i class="fa fa-user"></i> Lorem Ipsum Generator
-          </a>
+          <icon class="glyphicon glyphicon-align-left"></icon> Lorem Ipsum Generator
+        </a>
       </li>
       <li id="randomuserTab">
         <a href="randomuser" role="tab" data-toggle="tab">
-          <i class="fa fa-user"></i> Random User Generator
-          </a>
+          <icon class="glyphicon glyphicon-user"></icon> Random User Generator
+        </a>
       </li>
     </ul>
     @yield('content')

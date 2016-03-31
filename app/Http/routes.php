@@ -20,6 +20,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/xkcdpassword', 'ToolsController@postXkcdPassword');
 
     Route::get('/loremipsum', 'ToolsController@getLoremIpsum');
+    Route::post('/loremipsum', 'ToolsController@postLoremIpsum');
+
     Route::get('/randomuser', 'ToolsController@getRandomUser');
+    Route::post('/randomuser', 'ToolsController@postRandomUser');
 
 });

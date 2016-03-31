@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Badcow\LoremIpsum\Generator;
+use Faker\Factory as FakerFactory;
+use Faker\Generator as FakerGenerator;
 
 class ToolsController extends Controller {
 
@@ -87,18 +90,30 @@ class ToolsController extends Controller {
     * Responds to requests to GET /loremipsum
     */
     public function getLoremIpsum() {
-        return view('tools.loremipsum', ['error' => '']);
+        return view('tools.loremipsum', ['error' => '', 'paragraphs' => '']);
     }
 
     /**
      * Responds to requests to POST /loremipsum
      */
     public function postLoremIpsum(Request $request) {
-        return 'Process adding new book';
+      $error = '';
+      $paragraphs = '';
+      $paragraphcount = $request->input('paragraphcount');
+
+      if (!(ctype_digit($paragraphcount))){
+        $error .= "Input value for word count is not a valid integer. \n";
+      } elseif ($paragraphcount < 1 || $paragraphcount > 50) {
+        $error .= "Word count must be at least 1 and less than 50. \n";
+      } else {
+        $generator = new Generator();
+        $paragraphs = $generator->getParagraphs($paragraphcount);
+      }
+        return view('tools.loremipsum', ['error' => $error, 'paragraphs' => $paragraphs]);
     }
 
     /**
-    * Responds to requests to GET /loremipsum
+    * Responds to requests to GET /randomuser
     */
     public function getRandomUser() {
         return view('tools.randomuser', ['error' => '']);
@@ -108,27 +123,32 @@ class ToolsController extends Controller {
      * Responds to requests to POST /randomuser
      */
     public function postRandomUser(Request $request) {
-        return 'Process adding new book';
-    }
 
-    /**
-     * Responds to requests to GET /books/show/{id}
-     */
-    public function getShow($id) {
-        return 'Show book: '.$id;
-    }
-
-    /**
-     * Responds to requests to GET /books/create
-     */
-    public function getCreate() {
-        return 'Form to create a new book';
-    }
-
-    /**
-     * Responds to requests to POST /books/create
-     */
-    public function postCreate() {
-        return 'Process adding new book';
+        $this->validate($request, [
+          'usercount' => 'required|integer|between:1,50',
+          'address' => 'required',
+          'birthday' => 'required',
+          'summary' => 'required'
+        ]);
+        $usercount = $request->input('usercount');
+        $address = $request->input('address');
+        $birthday = $request->input('birthday');
+        $summary = $request->input('summary');
+        $userString = '';
+        for ($i=0; $i<$usercount; $i++) {
+          $user = FakerFactory::create();
+          $userString .= '<h4> User ' . $n = $i+1 . ': </h4>';
+          $userString .= '<p>'. $user->firstName ." " . $user->lastName . '</p>';
+          if($address == "TRUE") {
+            $userString .= '<p>'. $user->streetAddress . " " . $user->city . "," . $user->state . '</p>';
+          }
+          if($birthday == "TRUE") {
+            $userString .= '<p>'. $user->dateTimeThisCentury->format('m-d-Y') . '</p>';
+          }
+          if($summary == "TRUE") {
+            $userString .= '<p>'. $user->realText(rand(100,250)) . '</p>';
+          }
+        }
+        return view('tools.randomuser', ['error' => '', 'userString' => $userString]);
     }
 }

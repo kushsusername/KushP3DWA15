@@ -203,6 +203,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Random' => 'Rych\Random\Random'
+
     ],
 
 ];
